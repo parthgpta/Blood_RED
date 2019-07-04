@@ -1,0 +1,15 @@
+{% extends 'Profile/base.html' %}
+{% block content %}
+	<a href="{% url 'main_page' %}"><button>Back</button></a>
+	{% for person in persons %}
+	<div class="fullcard"><h3><b>Name -</b> {{person.name}}</h3>
+		<b>Phone - </b>{{person.phone}}<br>
+		<b>E-mail - </b>{{person.email}}<br>
+		<b>Address -</b>{{person.address}}<br>
+		
+
+	</div>
+		
+	{% endfor %}
+
+{% endblock content %}

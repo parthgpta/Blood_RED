@@ -1,0 +1,63 @@
+@font-face {
+  font-family: IM FELL Double Pica;
+  src: url(fonts/IMFeDPrm28P.ttf);
+}
+@font-face {
+  font-family: Lobster-Regular;
+  src: url(fonts/Lobster-Regular.ttf);
+}
+
+.page-header{
+	background-color: black;
+	font-family:  "IM FELL Double Pica";
+	font-size: 50px;
+	height: 105px;
+	padding-left: 30px;
+	padding-top: 20px;
+	color: white;
+	margin-bottom: 2px;
+}
+
+.nav{
+	background-color: black;
+	height: 30px;
+	color: white;
+	margin-top: 2px;
+}
+
+.mp{
+	font-family: Lobster-Regular;
+	color: rgb(201, 6, 6);
+	text-align: center;
+}
+
+.container1{
+	display: grid;
+	
+	grid-template-columns: auto auto auto;
+	grid-column-gap: 10px;
+	text-align: center;
+	text-decoration: none;
+	font-family: IM FELL Double Pica;
+
+}
+
+.d1 , .d2 , .d3{
+	border: 1px solid #ccc;
+	height: 170px;
+    border-radius: 5px;
+    margin: 10px 5px;
+    padding: 60px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+}
+
+.fullcard{
+	border: 1px solid #ccc;
+	height: 190px;
+	border-radius: 5px;
+	margin: 10px 5px;
+	padding: 35px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+

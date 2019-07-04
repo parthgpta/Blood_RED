@@ -1,0 +1,13 @@
+{% extends 'Profile/base.html' %}
+{% block content %}
+<div class='mp'>
+	<h1 >Select Blood Group -</h1>
+</div><br><br>
+<div class="container1">	
+		<a href="{% url 'dis_pageA' %}"><div class="d1"><h1>A</h1></div></a>
+		<a href="{% url 'dis_pageB' %}"><div class="d1"><h1>B</h1></div></a>
+		<a href="{% url 'dis_pageO' %}"><div class="d1"><h1>O</h1></div></a>
+		
+</div>
+
+{% endblock content %}
