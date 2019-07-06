@@ -1,0 +1,17 @@
+{% extends 'Profile/base.html' %}
+{% block content %}
+	<a href="{% url 'main_page' %}"><button>Back</button></a>
+		
+	<div class="card3"><h3><b>Name -</b> {{person.name}}</h3></a>
+		<hr>
+		<b> Phone - </b>{{person.phone}}<br>
+		<b> E-mail - </b>{{person.email}}<br>
+		<b> Address -</b>{{person.address}}<br>
+		<b> BIO -</b>{{person.bio}}<br>
+		
+
+	</div>
+		
+	
+
+{% endblock content %}

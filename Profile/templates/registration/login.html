@@ -2,9 +2,10 @@
 
 {% block content %}
     {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
+        <p>! Your username and password didn't match. Please try again.</p>
     {% endif %}
-
+    <p class="p1">Login</p>
+<div class="card1">
     <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
         <table>
@@ -17,8 +18,10 @@
             <td>{{ form.password }}</td>
         </tr>
         </table>
-
-        <input type="submit" value="login" />
+        <br>
+       <center> <input type="submit" value="login" />
         <input type="hidden" name="next" value="{{ next }}" />
+        </center>
     </form>
+</div>
 {% endblock %}

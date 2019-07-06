@@ -2,6 +2,10 @@
 {% block content %}
 	<a href="{% url 'main_page' %}"><button>Back</button></a>
 	{% for person in persons %}
+	{% if user.is_authenticated %}
+	<a href="{% url 'person_detail' pk=person.pk %}">
+		{% endif %}
+	
 	<div class="fullcard"><h3><b>Name -</b> {{person.name}}</h3>
 		<b>Phone - </b>{{person.phone}}<br>
 		<b>E-mail - </b>{{person.email}}<br>
@@ -9,6 +13,7 @@
 		
 
 	</div>
+</a>
 		
 	{% endfor %}
 

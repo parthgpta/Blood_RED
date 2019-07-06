@@ -1,0 +1,11 @@
+{% extends 'Profile/base.html' %}
+{% block content %}
+<p class="p1">Sign up</p>
+<div class="card1">
+	<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">Sign up</button>
+	</form>
+</div>
+{% endblock content %}
