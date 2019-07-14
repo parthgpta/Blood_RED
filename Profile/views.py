@@ -1,16 +1,48 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404 , redirect
 from .models import Person
-from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy
-from django.views import generic
+from .forms import SignUpForm
+from .forms import donateForm
+from django.contrib.auth import login,authenticate
 
 # Create your views here.
 
-class signupview(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
-
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()
+            user.profile.name = form.cleaned_data.get('name')
+            user.profile.blood_group = form.cleaned_data.get('blood_group')
+            user.profile.email = form.cleaned_data.get('email')
+            user.profile.address = form.cleaned_data.get('address')
+            user.profile.city = form.cleaned_data.get('city')
+            user.profile.about_me = form.cleaned_data.get('about_me')
+            user.save()
+            raw_password = form.cleaned_data.get('password1')
+            #user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('main_page')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration/signup.html', {'form': form})
+    
+def donate_blood(request):
+    form = donateForm(request.POST)
+    if request.method =="POST":
+        
+        if form.is_valid():
+            person = form.save(commit =False)
+            person.name = request.user
+            person.address= form.cleaned_data.get('address')
+            person.blood_grp = form.cleaned_data.get('blood_grp')
+            person.phone = form.cleaned_data.get('phone')
+            person.email = form.cleaned_data.get('email')
+            person.save()            
+            return redirect('main_page')
+   
+    
+    return render(request , 'Profile/donate_blood_req.html',{'form':form})
 
 
 def main_page(request):
@@ -31,3 +63,6 @@ def dis_pageO(request):
 def person_detail(request ,pk):
     person = get_object_or_404(Person, pk=pk)
     return render(request , 'Profile/person_detail.html' , {'person':person})
+
+def person_profile(request):
+    return render(request , 'registration/profile.html' ,{})

@@ -9,7 +9,9 @@ urlpatterns =[
     path('group/O/' ,views.dis_pageO , name = 'dis_pageO'),
     path('login/',auth_views.login , name ='login'),
     path('logout/' , auth_views.logout , {'next_page':'/'} ,name = 'logout'),
-    path('signup/' , views.signupview.as_view() , name='signup'),
+    path('signup/' , views.signup , name='signup'),
     path('person/<int:pk>/', views.person_detail ,name='person_detail'),
+    path('person/profile/' ,views.person_profile , name='person_profile'),
+    path('person/donate_blood_req/' , views.donate_blood , name='donate_blood_req'),
     
     ]

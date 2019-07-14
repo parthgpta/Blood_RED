@@ -1,11 +1,11 @@
 {% extends 'Profile/base.html' %}
 {% block content %}
-<p class="p1">Sign up</p>
+<p class="p1">Donate Blood</p>
 <div class="card1">
 	<form method="POST">
 	{% csrf_token %}
-	{{ form.as_ul}}
-	<button type="submit">Sign up</button>
+	{{ form.as_p}}
+	<button type="submit">Add</button>
 	</form>
 </div>
 {% endblock content %}
