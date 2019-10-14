@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="post">
+		 {% if user.is_authenticated %}<br>
+		 	{{ user.name }}
+		 	<p>Posts -</p><br>
+		 		{{ post.title }}<br>
+		 		<p>{{ post.text }}</p><br><br>
+		 {% else %}
+		 	<a href="{% url 'login' %}"> <button>login</button></a><br>
+		{% endif %}
+			<h1>You are not LoggedIn . </h1>
+	</div>
+{% endblock %}
