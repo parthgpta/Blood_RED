@@ -1,15 +1,14 @@
-{% extends 'Profile/base.html' %}
+{% extends 'base.html' %}
 {% block content %}
-		
-
-		<div class="card4">
-			<p class="p1">Profile</p><hr>
-			<b>Name -</b>{{user.profile.name}}<br><br>
-			<b>Blood Group -</b>{{user.profile.blood_group}}<br>
-			<b>Email -</b>{{user.profile.email}}<br>
-			<b>Address -</b>{{user.profile.address}}<br>
-			<b>City -</b>{{user.profile.city}}<br>
-			<b>About Me -</b>{{user.profile.about_me}}<br>
-			
-		</div>
-{% endblock content %}
+	<div class="post">
+		 {% if user.is_authenticated %}<br>
+		 	{{ user.name }}
+		 	<p>Posts -</p><br>
+		 		{{ post.title }}<br>
+		 		<p>{{ post.text }}</p><br><br>
+		 {% else %}
+		 	<a href="{% url 'login' %}"> <button>login</button></a><br>
+		{% endif %}
+			<h1>You are not LoggedIn . </h1>
+	</div>
+{% endblock %}
